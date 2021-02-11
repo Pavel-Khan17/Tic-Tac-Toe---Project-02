@@ -1,0 +1,177 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 150px;
+  --mark-size: calc(var(--cell-size) * 0.8);
+}
+
+body {
+  margin: 0;
+}
+.game-home {
+  background-color: #333333;
+  position: relative;
+}
+.game-home .whose-turn {
+  margin: 0;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+  font-size: 35px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 9em;
+  -webkit-animation: type 2s steps(20, end);
+  animation: type 2s steps(20, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: 0.15em solid white;
+  }
+  100% {
+    border: none;
+  }
+}
+.game-board {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(3, auto);
+}
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 2px solid #ffffff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* cell border property */
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+  border-bottom: none;
+}
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+/* cell border property */
+
+.cell.cross,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+/* cross class property */
+.game-board.turn-cross .cell:not(.cross):not(.circle):hover::before,
+.game-board.turn-cross .cell:not(.cross):not(.circle):hover::after {
+  background-color: gray;
+}
+.cell.cross::before,
+.cell.cross::after {
+  background-color: #ffffff;
+}
+.game-board.turn-cross .cell:not(.cross):not(.circle):hover::before,
+.game-board.turn-cross .cell:not(.cross):not(.circle):hover::after,
+.cell.cross::before,
+.cell.cross::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.1);
+  height: var(--mark-size);
+  border-radius: 25px;
+}
+.game-board.turn-cross .cell:not(.cross):not(.circle):hover::before,
+.cell.cross::before {
+  transform: rotate(45deg);
+}
+.game-board.turn-cross .cell:not(.cross):not(.circle):hover::after,
+.cell.cross::after {
+  transform: rotate(-45deg);
+}
+/* cross class property */
+
+/* cricle class property */
+
+.game-board.turn-cricle .cell:not(.cross):not(.circle):hover::before,
+.game-board.turn-cricle .cell:not(.cross):not(.circle):hover::after,
+.cell.circle::before,
+.cell.circle::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.9);
+  height: calc(var(--mark-size) * 0.9);
+  border-radius: 50%;
+}
+.game-board.turn-cricle .cell:not(.cross):not(.circle):hover::before {
+  background-color: gray;
+}
+.cell.circle::before {
+  background-color: #ffffff;
+}
+.game-board.turn-cricle .cell:not(.cross):not(.circle):hover::after,
+.cell.circle::after {
+  background-color: #333;
+  transform: scale(0.79);
+}
+/* cricle class property */
+
+/* final massage show  */
+.winning-massage {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 30px;
+  flex-direction: column;
+}
+.winning-massage button {
+  font-size: 25px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 15px 15px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.winning-massage button:hover {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.winning-massage.show {
+  display: none;
+}
+/* final massage show  */

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <title>Tic Tac Toe Game</title>
+  </head>
+
+  <body>
+    <section class="game-home">
+      <h1 class="whose-turn" id="whoseTurn">Let's start the game</h1>
+      <div class="game-board turn-cross" id="gameBoard">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
+    </section>
+
+    <!-- winning massage -->
+    <div class="winning-massage show" id="winningMassage">
+      <h1 id="winningMassageText"></h1>
+      <button id="restartButton">restart game</button>
+    </div>
+  </body>
+</html>
