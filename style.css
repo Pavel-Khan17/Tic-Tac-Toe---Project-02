@@ -27,7 +27,7 @@ body {
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
-  width: 9em;
+  width: 10em;
   -webkit-animation: type 2s steps(20, end);
   animation: type 2s steps(20, end);
   -webkit-animation-fill-mode: forwards;
