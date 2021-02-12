@@ -10,6 +10,7 @@ const winningMassageText = document.getElementById("winningMassageText");
 // hover dewar jonno and kar turn bujar jonno id diye oi div take dortesi
 const gameBoard = document.getElementById("gameBoard");
 const winningMassage = document.getElementById("winningMassage");
+const playAgain = document.getElementById("playAgain");
 const restartButton = document.getElementById("restartButton");
 const whoseTurn = document.getElementById("whoseTurn");
 const winningCombination = [
@@ -25,14 +26,16 @@ const winningCombination = [
 
 startGame();
 
-restartButton.addEventListener("click", startGame);
+playAgain.addEventListener("click", startGame);
+
+restartButton.addEventListener("click", () => {
+  location.reload();
+});
 
 function startGame() {
   cellElements.forEach((cell) => {
-    circleTurn = false;
     cell.classList.remove(crossClass);
     cell.classList.remove(circleClass);
-
     cell.removeEventListener("click", handleClick);
     // jehetu sob data cell gula array akare asbe tai array method use kora hoise protita cell er modde event listener lagano hoise once : true dewa hoise jate ekbar kaj kore just
     cell.addEventListener("click", handleClick, { once: true });

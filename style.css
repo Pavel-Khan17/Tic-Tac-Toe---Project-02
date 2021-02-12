@@ -175,3 +175,32 @@ body {
   display: none;
 }
 /* final massage show  */
+
+@media (max-width: 486px) {
+  :root {
+    --cell-size: 120px;
+  }
+  .game-home .whose-turn {
+    font-size: 33px;
+  }
+  .winning-massage h1 {
+    font-size: 38px;
+  }
+  .winning-massage button {
+    font-size: 20px;
+  }
+}
+@media (max-width: 375px) {
+  :root {
+    --cell-size: 100px;
+  }
+  .game-home .whose-turn {
+    font-size: 30px;
+  }
+  .winning-massage h1 {
+    font-size: 35px;
+  }
+  .winning-massage button {
+    font-size: 18px;
+  }
+}
